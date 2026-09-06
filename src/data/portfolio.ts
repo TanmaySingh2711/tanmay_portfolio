@@ -19,7 +19,7 @@ export const portfolioData = {
       degree: "Bachelor of Engineering, Artificial Intelligence & Data Science",
       institution: "K. S. School of Engineering and Management",
       location: "Bengaluru, India",
-      cgpa: "8.25/10",
+      cgpa: "7.3/10",
       expectedGraduation: "2027",
     },
   ],
@@ -59,25 +59,18 @@ export const portfolioData = {
   ],
   projects: [
     {
-      name: "Automated Invoice & Tax Discrepancy Detector",
-      stack: ["Python", "Pandas", "Flask"],
-      githubUrl: "https://github.com/TanmaySingh2711/invoice-discrepancy-detector",
+      name: "Razorpay Agentic Commerce",
+      stack: ["TypeScript", "Next.js", "Gemini API", "Razorpay API"],
+      githubUrl: "https://github.com/TanmaySingh2711/razorpay-agentic-commerce",
       description:
-        "Built a data processing pipeline using Pandas to parse CSV files and verify actual mathematical totals against claimed vendor amounts. Designed an interactive Flask web dashboard allowing non-technical users to seamlessly upload and analyze raw billing data. Implemented automated filtering logic to isolate and highlight exact mathematical errors, significantly reducing manual auditing time.",
+        "Built an AI buyer agent using Google Gemini to understand shopping requests and propose suitable products within user-defined requirements. Developed a secure policy and human-approval system where the server validates prices, spending limits, inventory, and authorization before payment. Integrated Razorpay Test Mode with payment state tracking, retries, inventory reservation, and audit logging for reliable end-to-end purchases.",
     },
     {
-      name: "Medical Bill Pricing Anomaly Inspector",
-      stack: ["Python", "Pandas", "scikit-learn", "Flask"],
-      githubUrl: "https://github.com/TanmaySingh2711/medical-bill-inspector",
+      name: "Glitch Hunter – AI Game Testing System",
+      stack: ["Python", "Stable-Baselines3", "Gymnasium", "Flask"],
+      githubUrl: "https://github.com/TanmaySingh2711/glitch_hunter_project",
       description:
-        "Trained an Isolation Forest machine learning model using Scikit-Learn to autonomously detect pricing anomalies in complex datasets. Developed a Flask user interface featuring a file uploader for quick comparisons between personal bills and baseline regional costs. Engineered a side-by-side diagnostic table that visually isolates and highlights highly inflated line items for the user.",
-    },
-    {
-      name: "Privacy Policy \"Dark Pattern\" Auditor",
-      stack: ["Python", "scikit-learn", "BeautifulSoup", "Flask"],
-      githubUrl: "https://github.com/TanmaySingh2711/privacy-policy-auditor",
-      description:
-        "Engineered a web scraper using BeautifulSoup to extract raw paragraph text directly from live privacy policy URLs. Trained a custom text classification pipeline using Scikit-Learn to identify predatory legal phrasing and evaluate privacy risks. Integrated the machine learning model with a Flask frontend to generate a dynamic, color-coded report highlighting sketchy clauses.",
+        "Trained a PPO reinforcement learning agent to autonomously explore and interact with a Mario-style game environment for continuous gameplay testing. Developed a runtime glitch detection system that monitors game-state invariants to identify abnormal movement, clipping, score, and coin-related bugs. Built a live Flask dashboard to stream AI gameplay, actions, rewards, and detected glitches for real-time testing and analysis.",
     },
     {
       name: "Intelligent Support Ticket Routing API",

@@ -33,24 +33,26 @@ export function CodingProfiles() {
       <SectionHeading>Coding Profiles</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {profiles.map((profile, index) => (
-          <a
+          <div
             key={index}
-            href={profile.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`group flex flex-col items-center justify-center bg-card border border-border rounded-xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${profile.color}`}
+            className={`group flex flex-col items-center bg-card border border-border rounded-xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${profile.color}`}
           >
             <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
               {profile.icon}
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-1">
+            <h3 className="text-lg font-bold text-foreground mb-6">
               {profile.name}
             </h3>
-            <div className="flex items-center text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors mt-2">
+            <a
+              href={profile.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-muted px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent-blue hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-blue"
+            >
               <span>View Profile</span>
-              <ExternalLink size={14} className="ml-2" />
-            </div>
-          </a>
+              <ExternalLink size={14} />
+            </a>
+          </div>
         ))}
       </div>
     </Section>
