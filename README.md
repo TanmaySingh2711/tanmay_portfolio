@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tanmay Singh — Portfolio
 
-## Getting Started
+Personal portfolio site for Tanmay Singh, an aspiring AI Engineer. Built with the Next.js App Router, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+**Live site:** [tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router, Turbopack)
+- [React](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [Framer Motion](https://motion.dev) for scroll/entry animations
+- [next-themes](https://github.com/pacocoursey/next-themes) for light/dark mode
+- Hosted on [Vercel](https://vercel.com)
+
+## Getting started
+
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site. It hot-reloads as you edit files under [src/](src/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                # App Router entry point, layout, metadata, SEO files
+  components/
+    sections/          # One component per page section (Hero, About, Projects, ...)
+    ui/                # Small shared building blocks (Section, SectionHeading)
+  data/
+    portfolio.ts       # Single source of truth for all site content
+  lib/
+    utils.ts           # Shared helpers (e.g. `cn` for class merging)
+public/
+  certificates/        # Certificate PDFs linked from the Certifications section
+  resume.pdf           # Resume linked from the Hero "View Resume" button
+```
 
-## Learn More
+All personal content (bio, skills, projects, certifications, links) lives in [src/data/portfolio.ts](src/data/portfolio.ts) — update that file to change what's shown on the site rather than editing components directly.
 
-To learn more about Next.js, take a look at the following resources:
+## Available scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Create a production build |
+| `npm run start` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The site auto-deploys to [Vercel](https://vercel.com) on push. To deploy manually, run `npm run build` and follow the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).

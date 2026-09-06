@@ -5,13 +5,21 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
+// Reads whether we've hydrated on the client without calling setState from
+// inside an effect (which would trigger an extra render pass). The server
+// snapshot is always `false`, so the first client render still matches the
+// server-rendered markup and avoids a hydration mismatch.
+function useHasMounted() {
+  return React.useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
+
 export function ThemeToggle({ className }: { className?: string }) {
   const { setTheme, theme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useHasMounted();
 
   if (!mounted) {
     return <div className={cn("w-10 h-10", className)} />;

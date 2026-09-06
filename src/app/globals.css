@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Make the `dark:` variant follow next-themes' `data-theme` attribute
+   instead of the OS-level `prefers-color-scheme`, so it stays in sync with
+   the manual theme toggle rather than only the system preference. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   --background: #ffffff;
   --foreground: #111827;
@@ -10,6 +15,7 @@
   --card: #ffffff;
   --card-foreground: #111827;
   --border: #e5e7eb;
+  color-scheme: light;
 }
 
 :root[data-theme="dark"] {
@@ -22,6 +28,7 @@
   --card: #0c101a;
   --card-foreground: #f9fafb;
   --border: #1f2937;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -35,7 +42,6 @@
   --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
 }
 
 html {

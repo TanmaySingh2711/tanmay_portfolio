@@ -3,6 +3,7 @@ export const portfolioData = {
     name: "Tanmay Singh",
     title: "Aspiring AI Engineer",
     location: "Bengaluru, Karnataka, India",
+    siteUrl: "https://tanmayportfolio-five.vercel.app",
     phone: "+91 8860028629",
     email: "tanmaysingh8970@gmail.com",
     linkedin: "https://linkedin.com/in/tanmay-singh-216380334/",

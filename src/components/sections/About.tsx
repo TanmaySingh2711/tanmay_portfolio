@@ -1,9 +1,7 @@
-import { portfolioData } from "@/data/portfolio";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function About() {
-  const { personal } = portfolioData;
   return (
     <Section id="about">
       <SectionHeading>About</SectionHeading>
