@@ -13,72 +13,83 @@ export const portfolioData = {
     leetcode: "https://leetcode.com/u/vcYjoLhKrp/",
     resume: "/resume.pdf",
     summary:
-      "Final-year B.E. student in Artificial Intelligence & Data Science with a strong foundation in Java, Python, C, SQL, and Git/GitHub. Deeply interested in Artificial Intelligence, Machine Learning, and software development, with a focus on building practical, real-world solutions. A quick learner who is continuously improving and adapting to new technologies.",
+      "Final-year B.E. student in Artificial Intelligence and Data Science who builds AI software that solves practical problems. Skilled in Python, machine learning, deep learning, computer vision, and web development. Built a hand-gesture game controller that recognizes gestures with 99% accuracy, a self-learning agent that plays a game to find bugs on its own, and an AI shopping assistant that completes secure test payments. Seeking an entry-level AI Engineer role.",
   },
   education: [
     {
-      degree: "Bachelor of Engineering, Artificial Intelligence & Data Science",
+      degree: "Bachelor of Engineering in Artificial Intelligence & Data Science",
       institution: "K. S. School of Engineering and Management",
       location: "Bengaluru, India",
       cgpa: "7.3/10",
-      expectedGraduation: "2027",
+      duration: "2023 - 2027",
     },
   ],
   skills: [
     {
       category: "Languages",
-      items: ["Java", "Python", "C", "SQL"],
+      items: ["Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
     },
     {
-      category: "Libraries",
+      category: "AI & ML",
       items: [
-        "NumPy",
-        "Pandas",
-        "Matplotlib",
-        "Seaborn",
+        "PyTorch",
         "scikit-learn",
-        "Gymnasium",
         "Stable-Baselines3",
+        "Gymnasium",
+        "OpenCV",
+        "NumPy",
+        "Matplotlib",
+        "Google Gemini API",
       ],
     },
     {
-      category: "Frameworks",
-      items: ["Flask", "Streamlit"],
+      category: "Frameworks & Libraries",
+      items: ["Next.js", "React", "Flask", "Pygame"],
     },
     {
-      category: "Web",
-      items: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-      category: "Databases",
-      items: ["MySQL", "MongoDB"],
+      category: "APIs & Databases",
+      items: ["REST APIs", "Razorpay API", "PostgreSQL"],
     },
     {
       category: "Developer Tools",
-      items: ["Git", "GitHub", "Git Bash", "VS Code", "Antigravity"],
+      items: ["Git", "GitHub", "GitHub Actions", "Docker", "Vercel", "CUDA"],
     },
   ],
   projects: [
     {
-      name: "Razorpay Agentic Commerce",
-      stack: ["TypeScript", "Next.js", "Gemini API", "Razorpay API"],
-      githubUrl: "https://github.com/TanmaySingh2711/razorpay-agentic-commerce",
+      name: "CNN-Based Gesture Controlled Pac-Man",
+      stack: ["Python", "PyTorch", "OpenCV", "CUDA", "Pygame"],
+      githubUrl: "https://github.com/TanmaySingh2711/gesture-controlled-game",
       description:
-        "Built an AI buyer agent using Google Gemini to understand shopping requests and propose suitable products within user-defined requirements. Developed a secure policy and human-approval system where the server validates prices, spending limits, inventory, and authorization before payment. Integrated Razorpay Test Mode with payment state tracking, retries, inventory reservation, and audit logging for reliable end-to-end purchases.",
+        "Built and trained a MobileNetV2-based Convolutional Neural Network (CNN) for real-time hand gesture classification using a 2,000-image HaGRID dataset, achieving 99.0% test accuracy across left, right, up, and down commands. Developed a real-time computer vision pipeline using OpenCV, CUDA-enabled PyTorch inference, confidence thresholding, and temporal smoothing to convert webcam gestures into responsive game controls. Engineered a Pac-Man-style Pygame application with maze navigation, ghost AI, pellets, power-ups, scoring, lives, and level progression, maintaining approximately 60 FPS gameplay with 30 FPS gesture recognition.",
     },
     {
       name: "Glitch Hunter – AI Game Testing System",
       stack: ["Python", "Stable-Baselines3", "Gymnasium", "Flask"],
       githubUrl: "https://github.com/TanmaySingh2711/glitch_hunter_project",
       description:
-        "Trained a PPO reinforcement learning agent to autonomously explore and interact with a Mario-style game environment for continuous gameplay testing. Developed a runtime glitch detection system that monitors game-state invariants to identify abnormal movement, clipping, score, and coin-related bugs. Built a live Flask dashboard to stream AI gameplay, actions, rewards, and detected glitches for real-time testing and analysis.",
+        "Trained a PPO reinforcement learning agent in two stages for 16 million steps across 8 parallel environments to autonomously explore and interact with a Mario-style Pygame game for continuous gameplay testing. Developed a runtime glitch detection system that monitors game-state invariants to identify abnormal movement, clipping, score, and coin-related bugs, saving screenshot, GIF, and PDF report evidence for each bug. Built a live Flask and Socket.IO dashboard to stream AI gameplay, actions, rewards, and detected glitches for real-time testing and analysis.",
     },
     {
-      name: "Intelligent Support Ticket Routing API",
-      stack: ["Python", "Flask", "scikit-learn", "SQLite"],
-      githubUrl: "https://github.com/TanmaySingh2711/ticket-routing-api",
+      name: "Razorpay Agentic Commerce",
+      stack: ["TypeScript", "Next.js", "PostgreSQL", "Gemini API", "Razorpay API"],
+      githubUrl: "https://github.com/TanmaySingh2711/razorpay-agentic-commerce",
       description:
-        "Trained a Naive Bayes text classifier to process unstructured customer complaints and accurately predict the required department. Deployed the machine learning model via a Flask REST API to accept JSON payloads and return real-time routing decisions to client applications. Integrated a local SQLite database to securely log incoming tickets and track model predictions for persistent auditing.",
+        "Built and deployed on Vercel an AI buyer agent using Google Gemini to understand shopping requests and propose suitable products within user-defined requirements. Developed a secure policy and human-approval system where the server validates prices, spending limits, inventory, and authorization before payment. Integrated Razorpay Test Mode with payment state tracking, retries, inventory reservation, and audit logging for reliable, complete purchases.",
+    },
+  ],
+  hackathons: [
+    {
+      name: "Hire-4-Thon",
+      level: "National Level Hackathon",
+      year: "2026",
+      url: "/certificates/hire-4-thon-national-hackathon.pdf",
+    },
+    {
+      name: "Hackathon-24",
+      level: "College Level Hackathon",
+      year: "2024",
+      url: "/certificates/hackathon-24-kssem.pdf",
     },
   ],
   certifications: [

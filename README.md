@@ -15,7 +15,11 @@ Personal portfolio site for Tanmay Singh, an aspiring AI Engineer. Built with th
 
 ## Getting started
 
-Install dependencies and run the dev server:
+You need [Node.js](https://nodejs.org) 20 or newer.
+
+**One-click setup:** run `setup.bat` (Windows) or `./setup.sh` (macOS / Linux) to install dependencies. On Windows, `run_dev.bat` then starts the dev server (and runs setup first if needed).
+
+Or do it by hand:
 
 ```bash
 npm install
@@ -51,6 +55,11 @@ All personal content (bio, skills, projects, certifications, links) lives in [sr
 | `npm run build` | Create a production build |
 | `npm run start` | Serve the production build locally |
 | `npm run lint` | Run ESLint |
+| `npm run typecheck` | Generate route types and run the TypeScript compiler |
+
+## CI
+
+[.github/workflows/ci.yml](.github/workflows/ci.yml) runs on every push to `main` and on pull requests: ESLint, a TypeScript type check, a production build on Ubuntu, macOS and Windows, and the one-click setup scripts on all three.
 
 ## Deployment
 

@@ -11,6 +11,7 @@ const navLinks = [
   { name: "Education", href: "#education" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
+  { name: "Hackathons", href: "#hackathons" },
   { name: "Coding Profiles", href: "#coding-profiles" },
   { name: "Certifications", href: "#certifications" },
   { name: "Contact", href: "#contact" },
@@ -73,7 +74,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -93,7 +94,7 @@ export function Navbar() {
           </nav>
 
           {/* Mobile Nav Toggle */}
-          <div className="flex md:hidden items-center gap-4">
+          <div className="flex lg:hidden items-center gap-4">
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -116,7 +117,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            className="lg:hidden bg-background border-b border-border overflow-hidden"
           >
             <nav className="flex flex-col px-4 py-4 space-y-4">
               {navLinks.map((link) => (

@@ -34,7 +34,7 @@ export function Education() {
                 <div className="flex flex-col gap-2 shrink-0">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-sm font-medium w-fit">
                     <Calendar size={14} />
-                    <span>Expected {item.expectedGraduation}</span>
+                    <span>{item.duration}</span>
                   </div>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-red/10 text-accent-red text-sm font-medium w-fit">
                     <Award size={14} />
