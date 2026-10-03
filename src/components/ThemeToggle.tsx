@@ -18,7 +18,9 @@ function useHasMounted() {
 }
 
 export function ThemeToggle({ className }: { className?: string }) {
-  const { setTheme, theme } = useTheme();
+  // `resolvedTheme` is the theme actually on screen; `theme` can be "system",
+  // which would make the first click a no-op when the OS is already light.
+  const { setTheme, resolvedTheme } = useTheme();
   const mounted = useHasMounted();
 
   if (!mounted) {
@@ -27,7 +29,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 
   return (
     <button
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className={cn(
         "inline-flex items-center justify-center rounded-md w-10 h-10 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-red",
         className

@@ -11,25 +11,29 @@ export function Contact() {
     {
       name: "Phone",
       value: personal.phone,
-      href: `tel:${personal.phone.replace(/\s+/g, '')}`,
+      href: `tel:${personal.phone.replace(/\s+/g, "")}`,
+      external: false,
       icon: <Phone className="text-foreground" size={24} />,
     },
     {
       name: "Email",
       value: personal.email,
       href: `mailto:${personal.email}`,
+      external: false,
       icon: <Mail className="text-accent-red" size={24} />,
     },
     {
       name: "GitHub",
-      value: "TanmaySingh2711",
+      value: new URL(personal.github).pathname.replace(/^\/|\/$/g, ""),
       href: personal.github,
+      external: true,
       icon: <FaGithub className="text-foreground" size={24} />,
     },
     {
       name: "LinkedIn",
-      value: "Tanmay Singh",
+      value: personal.name,
       href: personal.linkedin,
+      external: true,
       icon: <FaLinkedin className="text-accent-blue" size={24} />,
     },
   ];
@@ -39,42 +43,30 @@ export function Contact() {
       <SectionHeading>Contact</SectionHeading>
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {contactMethods.map((method, index) => {
-            const content = (
+          {contactMethods.map((method) => (
+            <a
+              key={method.name}
+              href={method.href}
+              target={method.external ? "_blank" : undefined}
+              rel={method.external ? "noopener noreferrer" : undefined}
+              className="block"
+            >
               <div className="flex items-center gap-4 p-6 bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-shadow group">
                 <div className="p-3 bg-muted rounded-lg group-hover:bg-background transition-colors">
                   {method.icon}
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-1">
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-muted-foreground mb-1">
                     {method.name}
-                  </h4>
-                  <p className="text-base font-semibold text-foreground">
+                  </p>
+                  <p className="text-base font-semibold text-foreground break-words">
                     {method.value}
                   </p>
                 </div>
-                {method.href && (
-                  <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                )}
+                <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-            );
-
-            if (method.href) {
-              return (
-                <a
-                  key={index}
-                  href={method.href}
-                  target={method.name !== "Email" && method.name !== "Phone" ? "_blank" : undefined}
-                  rel={method.name !== "Email" && method.name !== "Phone" ? "noopener noreferrer" : undefined}
-                  className="block"
-                >
-                  {content}
-                </a>
-              );
-            }
-
-            return <div key={index}>{content}</div>;
-          })}
+            </a>
+          ))}
         </div>
       </div>
     </Section>

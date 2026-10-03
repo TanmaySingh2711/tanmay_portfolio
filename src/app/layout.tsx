@@ -73,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
       <head>
         <meta name="darkreader-lock" />
         <script
@@ -81,7 +81,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased min-h-screen bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300">
+      <body suppressHydrationWarning className="min-h-screen transition-colors duration-300">
         <ThemeProvider>
           {children}
         </ThemeProvider>

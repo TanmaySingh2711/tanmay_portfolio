@@ -38,7 +38,9 @@ export function Navbar() {
       setActiveSection(current);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Run once so a reload mid-page highlights the right link immediately.
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

@@ -10,8 +10,6 @@ export function Education() {
     <Section id="education" className="bg-muted/30">
       <SectionHeading>Education</SectionHeading>
       <div className="max-w-4xl relative">
-        {/* Timeline Line removed */}
-        
         {education.map((item, index) => (
           <div key={index} className="relative mb-8 last:mb-0">
             
