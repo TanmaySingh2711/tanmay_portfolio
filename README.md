@@ -37,8 +37,7 @@ This repository does not include screenshots yet. The best preview is the live s
 - [Deployment](#deployment)
 - [Environment and Configuration](#environment-and-configuration)
 - [License](#license)
-- [Author](#author)
-- [Connect With Me](#connect-with-me)
+- [Author and Contact](#author-and-contact)
 
 ## Overview
 
@@ -229,23 +228,14 @@ Other configuration lives in these files:
 
 This repository does not have a license file. All rights are reserved by the author.
 
-## Author
+## Author and Contact
 
-**Tanmay Singh**
+Built and maintained by **Tanmay Singh**.
 
 - Portfolio: [tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)
-- GitHub: [TanmaySingh2711](https://github.com/TanmaySingh2711)
-- LinkedIn: [Tanmay Singh](https://linkedin.com/in/tanmay-singh-216380334/)
-
-## Connect With Me
-
 - Email: [tanmaysingh8970@gmail.com](mailto:tanmaysingh8970@gmail.com)
 - LinkedIn: [tanmay-singh-216380334](https://linkedin.com/in/tanmay-singh-216380334/)
 - GitHub: [TanmaySingh2711](https://github.com/TanmaySingh2711)
 - GeeksforGeeks: [tanmaysiaq6p](https://www.geeksforgeeks.org/profile/tanmaysiaq6p)
 - HackerRank: [tanmaysingh4628](https://www.hackerrank.com/profile/tanmaysingh4628)
 - LeetCode: [vcYjoLhKrp](https://leetcode.com/u/vcYjoLhKrp/)
-
----
-
-[View Portfolio](https://tanmayportfolio-five.vercel.app) · [View Resume](public/resume.pdf) · [View GitHub](https://github.com/TanmaySingh2711) · [Connect on LinkedIn](https://linkedin.com/in/tanmay-singh-216380334/)
