@@ -157,7 +157,7 @@ setup.bat
 ./setup.sh
 ```
 
-On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, then starts the dev server.
+On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser once the page is ready. Press Esc in that window to stop the server and close it.
 
 ## Run Locally
 
@@ -192,7 +192,7 @@ public/
   certificates/      Certificate PDFs
 .github/workflows/   CI workflow
 setup.bat, setup.sh  One-click setup scripts
-run_portfolio.bat          Windows shortcut to start the dev server
+run_portfolio.bat    Windows shortcut to start the dev server and open the site
 ```
 
 ## CI / GitHub Actions
