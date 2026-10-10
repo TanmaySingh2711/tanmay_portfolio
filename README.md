@@ -157,7 +157,7 @@ setup.bat
 ./setup.sh
 ```
 
-On Windows you can also double-click `run_dev.bat`. It runs the setup first if dependencies are missing, then starts the dev server.
+On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, then starts the dev server.
 
 ## Run Locally
 
@@ -192,7 +192,7 @@ public/
   certificates/      Certificate PDFs
 .github/workflows/   CI workflow
 setup.bat, setup.sh  One-click setup scripts
-run_dev.bat          Windows shortcut to start the dev server
+run_portfolio.bat          Windows shortcut to start the dev server
 ```
 
 ## CI / GitHub Actions

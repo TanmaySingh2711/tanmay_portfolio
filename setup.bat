@@ -39,7 +39,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo Setup complete. Double-click run_dev.bat to start the site,
+echo Setup complete. Double-click run_portfolio.bat to start the site,
 echo or run:  npm run dev   and open http://localhost:3000
 if not defined CI if not defined NO_PAUSE pause
 endlocal
