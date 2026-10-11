@@ -226,7 +226,7 @@ Other configuration lives in these files:
 
 ## License
 
-This repository does not have a license file. All rights are reserved by the author.
+Copyright (c) 2026 Tanmay Singh. All rights reserved. This project is proprietary: nobody may use, copy, modify, fork, deploy or redistribute any part of it without written permission from the author. See [LICENSE](LICENSE).
 
 ## Author and Contact
 
