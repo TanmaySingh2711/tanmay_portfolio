@@ -9,7 +9,7 @@ export function Hero() {
     <section className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 text-foreground">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight uppercase mb-4 text-foreground">
             {personal.name}
           </h1>
           <h2 className="text-2xl md:text-3xl font-medium text-accent-blue mb-6">
