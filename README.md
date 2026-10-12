@@ -1,5 +1,7 @@
 # Tanmay Singh — Personal Portfolio
 
+![Portfolio screenshot](docs/screenshot-home.png)
+
 > Personal portfolio website with my projects, skills, education, certificates, and coding profiles, built with Next.js.
 
 ## Quick Links
@@ -15,12 +17,17 @@
 | HackerRank | [tanmaysingh4628](https://www.hackerrank.com/profile/tanmaysingh4628) |
 | LeetCode | [vcYjoLhKrp](https://leetcode.com/u/vcYjoLhKrp/) |
 
-## Project Preview
+## Screenshots
 
-This repository does not include screenshots yet. The best preview is the live site: **[tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)**.
+### Home page (dark mode)
+
+![Portfolio home page](docs/screenshot-home.png)
+
+The best preview is the live site: **[tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)**.
 
 ## Table of Contents
 
+- [Screenshots](#screenshots)
 - [Overview](#overview)
 - [Website Sections](#website-sections)
 - [Tech Stack](#tech-stack)
@@ -180,6 +187,7 @@ Then open [http://localhost:3000](http://localhost:3000). The page reloads autom
 ## Project Structure
 
 ```text
+docs/                Screenshots used in this README
 src/
   app/               Layout, page, metadata, icons, sitemap, robots, error and 404 pages
   components/
