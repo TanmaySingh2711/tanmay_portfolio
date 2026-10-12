@@ -117,6 +117,26 @@ export const portfolioData = {
       url: "/certificates/generative-ai-literacy-futureskills.pdf",
     },
   ],
+  courses: [
+    {
+      name: "Cloud Computing Workshop (AWS)",
+      provider: "Cloud Institution",
+      year: "2026",
+      url: "/certificates/cloud-computing-aws-workshop-cloud-institution.pdf",
+    },
+    {
+      name: "Agentic AI Projects Workshop",
+      provider: "Hebbale Academy",
+      year: "2025",
+      url: "/certificates/agentic-ai-projects-workshop-hebbale-academy.pdf",
+    },
+    {
+      name: "Advanced Excel, Power BI, and Tableau Workshop",
+      provider: "SFJ Business Solutions",
+      year: "2025",
+      url: "/certificates/excel-power-bi-tableau-workshop-sfj.pdf",
+    },
+  ],
 };
 
 export const getCertificateButtonType = (url: string) => {

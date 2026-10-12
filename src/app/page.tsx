@@ -5,9 +5,10 @@ import { About } from "@/components/sections/About";
 import { Education } from "@/components/sections/Education";
 import { Skills } from "@/components/sections/Skills";
 import { Projects } from "@/components/sections/Projects";
-import { Hackathons } from "@/components/sections/Hackathons";
 import { CodingProfiles } from "@/components/sections/CodingProfiles";
+import { Hackathons } from "@/components/sections/Hackathons";
 import { Certifications } from "@/components/sections/Certifications";
+import { Courses } from "@/components/sections/Courses";
 import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
@@ -20,9 +21,10 @@ export default function Home() {
         <Education />
         <Skills />
         <Projects />
-        <Hackathons />
         <CodingProfiles />
+        <Hackathons />
         <Certifications />
+        <Courses />
         <Contact />
       </main>
       <Footer />

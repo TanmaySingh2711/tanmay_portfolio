@@ -65,9 +65,10 @@ The page shows these sections, in this order:
 | Education | Degree, college, location, years, and CGPA |
 | Skills | Skills grouped by category (languages, AI & ML, frameworks, APIs & databases, tools) |
 | Projects | Project cards with the tech stack, a description, and a **View on GitHub** button |
-| Hackathons | Hackathon participation, each with a link to its certificate |
 | Coding Profiles | Links to GeeksforGeeks, HackerRank, and LeetCode |
+| Hackathons | Hackathon participation, each with a link to its certificate |
 | Certifications | Course certificates, each with a **View Certificate** button |
+| Courses | Workshops I completed, each with a **View Certificate** button |
 | Contact | Phone, email, GitHub, and LinkedIn |
 
 ## Tech Stack
@@ -130,7 +131,15 @@ All certificate PDFs are in [public/certificates/](public/certificates/). Each w
 | Hire-4-Thon | National | 2026 | `hire-4-thon-national-hackathon.pdf` |
 | Hackathon-24 | College | 2024 | `hackathon-24-kssem.pdf` |
 
-To add one, put the PDF in `public/certificates/` and add an entry to `certifications` or `hackathons` in [src/data/portfolio.ts](src/data/portfolio.ts).
+**Courses section**
+
+| Course | Provider | Year | File |
+|---|---|---|---|
+| Cloud Computing Workshop (AWS) | Cloud Institution | 2026 | `cloud-computing-aws-workshop-cloud-institution.pdf` |
+| Agentic AI Projects Workshop | Hebbale Academy | 2025 | `agentic-ai-projects-workshop-hebbale-academy.pdf` |
+| Advanced Excel, Power BI, and Tableau Workshop | SFJ Business Solutions | 2025 | `excel-power-bi-tableau-workshop-sfj.pdf` |
+
+To add one, put the PDF in `public/certificates/` and add an entry to `certifications`, `hackathons`, or `courses` in [src/data/portfolio.ts](src/data/portfolio.ts).
 
 ## Requirements
 
