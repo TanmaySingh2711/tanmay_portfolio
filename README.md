@@ -1,4 +1,4 @@
-# Tanmay Singh — Personal Portfolio
+# Tanmay Singh - Personal Portfolio
 
 ![Portfolio screenshot](docs/screenshot-home.png)
 
