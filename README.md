@@ -105,6 +105,7 @@ The website also generates its own SEO files with Next.js: page metadata, Open G
 | CNN-Based Gesture Controlled Pac-Man | Plays a Pac-Man-style game using hand gestures from the webcam, recognized by a CNN | Python, PyTorch, OpenCV, CUDA, Pygame | [GitHub](https://github.com/TanmaySingh2711/gesture-controlled-game) |
 | Glitch Hunter – AI Game Testing System | A reinforcement learning agent plays a game and a live dashboard shows the bugs it finds | Python, Stable-Baselines3, Gymnasium, Flask | [GitHub](https://github.com/TanmaySingh2711/glitch_hunter_project) |
 | Razorpay Agentic Commerce | An AI shopping assistant that completes purchases with approval checks and Razorpay test payments | TypeScript, Next.js, PostgreSQL, Gemini API, Razorpay API | [GitHub](https://github.com/TanmaySingh2711/razorpay-agentic-commerce) |
+| Academic Research Assistant | Answers questions about research paper PDFs with page-level citations, running fully offline with RAG and a local LLM | Python, RAG, FAISS, Ollama, Flask | [GitHub](https://github.com/TanmaySingh2711/academic-research-assistant) |
 
 ## Resume
 

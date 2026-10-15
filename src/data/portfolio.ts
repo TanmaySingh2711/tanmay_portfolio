@@ -82,6 +82,13 @@ export const portfolioData = {
       description:
         "Built and deployed on Vercel an AI buyer agent using Google Gemini to understand shopping requests and propose suitable products within user-defined requirements. Developed a secure policy and human-approval system where the server validates prices, spending limits, inventory, and authorization before payment. Integrated Razorpay Test Mode with payment state tracking, retries, inventory reservation, and audit logging for reliable, complete purchases.",
     },
+    {
+      name: "Academic Research Assistant",
+      stack: ["Python", "RAG", "FAISS", "Ollama", "Flask"],
+      githubUrl: "https://github.com/TanmaySingh2711/academic-research-assistant",
+      description:
+        "Built a fully local Retrieval-Augmented Generation (RAG) app that answers questions about research paper PDFs with page-level citations, using Llama 3.2 (3B) through Ollama with no API keys or cloud services. Designed a hybrid retrieval pipeline combining FAISS vector search and BM25 keyword search with cross-encoder re-ranking, raising the right passage ranked first from 44.4% to 83.3% and correct answers from 65% to over 90% on a real research paper. Developed a Flask web app with streamed answers, follow-up questions, saved chat history, and offline OCR for scanned PDFs, returning full answers in about 1 to 1.5 seconds on a laptop CPU.",
+    },
   ],
   hackathons: [
     {
