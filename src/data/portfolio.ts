@@ -45,6 +45,8 @@ export const portfolioData = {
         "NumPy",
         "Matplotlib",
         "Google Gemini API",
+        "RAG",
+        "Ollama",
       ],
     },
     {
@@ -53,7 +55,7 @@ export const portfolioData = {
     },
     {
       category: "APIs & Databases",
-      items: ["REST APIs", "Razorpay API", "PostgreSQL"],
+      items: ["REST APIs", "Razorpay API", "PostgreSQL", "FAISS"],
     },
     {
       category: "Developer Tools",
