@@ -4,7 +4,6 @@ import * as React from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -27,7 +26,7 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Active section tracking
+      // Highlight the last section whose top has scrolled past the navbar.
       const sections = navLinks.map((link) => link.href.substring(1));
       let current = "";
       for (const section of sections) {
@@ -36,7 +35,11 @@ export function Navbar() {
           current = section;
         }
       }
-      setActiveSection(current);
+      // The last section can be too short to reach that point, so treat the
+      // bottom of the page as being inside it.
+      const atBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      setActiveSection(atBottom ? sections[sections.length - 1] : current);
     };
 
     // Run once so a reload mid-page highlights the right link immediately.
@@ -112,36 +115,39 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            id="mobile-nav-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
-          >
-            <nav className="flex flex-col px-4 py-4 space-y-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleClick(e, link.href)}
-                  className={cn(
-                    "text-base font-medium py-2 transition-colors",
-                    activeSection === link.href.substring(1)
-                      ? "text-accent-blue"
-                      : "text-foreground"
-                  )}
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
-          </motion.div>
+      {/* Mobile Menu: grid rows animate from 0fr to 1fr so the height eases
+          open without measuring it, and `inert` keeps the closed menu out of
+          the tab order and away from screen readers. */}
+      <div
+        id="mobile-nav-menu"
+        inert={!isMobileMenuOpen}
+        className={cn(
+          "lg:hidden grid bg-background transition-[grid-template-rows,opacity] duration-300 motion-reduce:transition-none",
+          isMobileMenuOpen
+            ? "grid-rows-[1fr] opacity-100 border-b border-border"
+            : "grid-rows-[0fr] opacity-0"
         )}
-      </AnimatePresence>
+      >
+        <div className="overflow-hidden">
+          <nav className="flex flex-col px-4 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleClick(e, link.href)}
+                className={cn(
+                  "text-base font-medium py-2 transition-colors",
+                  activeSection === link.href.substring(1)
+                    ? "text-accent-blue"
+                    : "text-foreground"
+                )}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
     </header>
   );
 }

@@ -12,13 +12,13 @@ export function Hero() {
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight uppercase mb-4 text-foreground">
             {personal.name}
           </h1>
-          <h2 className="text-2xl md:text-3xl font-medium text-accent-blue mb-6">
+          <p className="text-2xl md:text-3xl font-medium text-accent-blue mb-6">
             {personal.title}
-          </h2>
+          </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed text-pretty">
             {personal.summary}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <div className="flex flex-wrap items-center gap-3">
               <a
@@ -36,7 +36,7 @@ export function Hero() {
                 View Projects
               </a>
             </div>
-            
+
             <div className="flex items-center gap-4">
               <a
                 href={personal.linkedin}

@@ -1,7 +1,8 @@
 import { portfolioData } from "@/data/portfolio";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ExternalLink } from "lucide-react";
+import { CardLink } from "@/components/ui/CardLink";
+import { cn } from "@/lib/utils";
 import { SiLeetcode, SiHackerrank, SiGeeksforgeeks } from "react-icons/si";
 
 export function CodingProfiles() {
@@ -32,26 +33,21 @@ export function CodingProfiles() {
     <Section id="coding-profiles">
       <SectionHeading>Coding Profiles</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {profiles.map((profile, index) => (
+        {profiles.map((profile) => (
           <div
-            key={index}
-            className={`group flex flex-col items-center bg-card border border-border rounded-xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${profile.color}`}
+            key={profile.name}
+            className={cn(
+              "group flex flex-col items-center bg-card border border-border rounded-xl p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md",
+              profile.color
+            )}
           >
-            <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
+            <div className="mb-4 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
               {profile.icon}
             </div>
             <h3 className="text-lg font-bold text-foreground mb-6">
               {profile.name}
             </h3>
-            <a
-              href={profile.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-muted px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent-blue hover:text-white focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-blue"
-            >
-              <span>View Profile</span>
-              <ExternalLink size={14} />
-            </a>
+            <CardLink href={profile.url}>View Profile</CardLink>
           </div>
         ))}
       </div>

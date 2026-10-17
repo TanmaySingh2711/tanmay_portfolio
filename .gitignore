@@ -13,7 +13,6 @@ next-env.d.ts
 # vercel CLI link
 .vercel
 
-# logs and OS clutter
-npm-debug.log*
+# OS clutter
 .DS_Store
 Thumbs.db

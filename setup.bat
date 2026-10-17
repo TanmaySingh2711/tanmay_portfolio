@@ -4,13 +4,14 @@ setlocal
 
 cd /d "%~dp0"
 
-set MIN_NODE_MAJOR=20
-
 where node >nul 2>nul
 if errorlevel 1 (
-  echo [ERROR] Node.js is not installed. Install Node.js %MIN_NODE_MAJOR%+ from https://nodejs.org and re-run.
+  echo [ERROR] Node.js is not installed. Install Node.js 20.9 or newer from https://nodejs.org and re-run.
   goto :fail
 )
+
+rem The minimum version comes from "engines" in package.json.
+for /f "delims=" %%v in ('node -p "require('./package.json').engines.node.match(/[\d.]+/)[0]"') do set MIN_NODE=%%v
 
 where npm >nul 2>nul
 if errorlevel 1 (
@@ -18,14 +19,13 @@ if errorlevel 1 (
   goto :fail
 )
 
-for /f "tokens=1 delims=." %%v in ('node -v') do set NODE_MAJOR=%%v
-set NODE_MAJOR=%NODE_MAJOR:v=%
-if %NODE_MAJOR% LSS %MIN_NODE_MAJOR% (
-  echo [ERROR] Node.js %MIN_NODE_MAJOR%+ is required, found version %NODE_MAJOR%.
+node -e "const m=process.argv[1].split('.').map(Number),c=process.versions.node.split('.').map(Number);for(let i=0;i<3;i++)if(c[i]!==m[i])process.exit(c[i]>m[i]?0:1)" %MIN_NODE%
+if errorlevel 1 (
+  for /f "delims=" %%v in ('node -v') do echo [ERROR] Node.js %MIN_NODE% or newer is required, found %%v.
   goto :fail
 )
 
-echo Using Node.js major version %NODE_MAJOR%
+for /f "delims=" %%v in ('node -v') do echo Using Node.js %%v
 echo Installing dependencies...
 
 if exist package-lock.json (

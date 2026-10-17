@@ -98,10 +98,10 @@ The page shows these sections, in this order:
 **Styling and UI**
 
 - [Tailwind CSS](https://tailwindcss.com) v4
-- [Framer Motion](https://motion.dev) for the fade-in animation on each section
+- CSS scroll-driven animations for the fade-in on each section (no animation library, and it turns off for visitors who prefer reduced motion)
 - [Lucide React](https://lucide.dev) and [React Icons](https://react-icons.github.io/react-icons/) for icons
 - [next-themes](https://github.com/pacocoursey/next-themes) for light / dark / system theme
-- `clsx` and `tailwind-merge` for combining class names
+- `clsx` for combining class names
 
 **Tooling**
 
@@ -160,7 +160,7 @@ To add one, put the PDF in `public/certificates/` and add an entry to `certifica
 
 ## Requirements
 
-- [Node.js](https://nodejs.org) 20 or newer (the setup scripts check this)
+- [Node.js](https://nodejs.org) 20.9 or newer (set in `engines` in `package.json`; the setup scripts check it)
 - npm (comes with Node.js)
 - [Git](https://git-scm.com), to clone the repository
 
@@ -192,7 +192,7 @@ setup.bat
 ./setup.sh
 ```
 
-On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser as soon as the server is up (usually within 3 seconds). Press Esc in that window to stop the server and close it.
+On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser as soon as the server is up (usually within 3 seconds). Press Esc in that window to stop the server and close it. If the site is already running, it just opens the browser.
 
 ## Run Locally
 
@@ -218,9 +218,9 @@ Then open [http://localhost:3000](http://localhost:3000). The page reloads autom
 docs/                Screenshots used in this README
 src/
   app/               Layout, page, metadata, icons, sitemap, robots, error and 404 pages
-  components/
+  components/        Navbar, Footer, and the theme provider and toggle
     sections/        One component per website section
-    ui/              Shared pieces (Section, SectionHeading, CredentialCard)
+    ui/              Shared pieces (Section, SectionHeading, CredentialCard, CardLink)
   data/portfolio.ts  All the website content
   lib/utils.ts       Small helper for combining class names
 public/
@@ -237,7 +237,7 @@ The workflow is [.github/workflows/ci.yml](.github/workflows/ci.yml), named **CI
 
 | Job | What it does | Runs on |
 |---|---|---|
-| Lint | `npm run lint` | Ubuntu |
+| Lint | `npm run lint` (fails on any warning, not only errors), then `npm audit --omit=dev --audit-level=high` for the packages the site ships | Ubuntu |
 | Type check | `npm run typecheck` | Ubuntu |
 | Build | `npm ci` and `npm run build` | Ubuntu, macOS, Windows |
 | One-click setup | Runs `setup.sh` or `setup.bat`, then checks that Next.js is installed | Ubuntu, macOS, Windows |

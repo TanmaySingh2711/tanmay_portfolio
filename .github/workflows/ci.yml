@@ -28,6 +28,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      # Checks only the packages that ship with the site. Dev-only tools are left
+      # out because ESLint's `braces` dependency has an advisory with no fix yet.
+      - name: Audit runtime dependencies
+        run: npm audit --omit=dev --audit-level=high
 
   typecheck:
     name: Type check (tsc)

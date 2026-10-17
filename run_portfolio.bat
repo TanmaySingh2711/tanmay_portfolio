@@ -23,9 +23,22 @@ rem The PowerShell code below is run by the command above. cmd never runs it.
 :PORTFOLIO_PS
 $url = 'http://localhost:3000'
 
+function Test-ServerUp {
+  $client = New-Object Net.Sockets.TcpClient
+  try { $client.Connect('127.0.0.1', 3000); return $true } catch { return $false } finally { $client.Close() }
+}
+
+# A second launch would fail because Next.js allows one dev server per project,
+# so reuse the one that is already running.
+if (Test-ServerUp) {
+  Write-Host 'The portfolio is already running. Opening it in your browser...'
+  Start-Process $url
+  exit 0
+}
+
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
   Write-Host '[ERROR] Node.js is not installed, so the site cannot start.'
-  Write-Host 'Install Node.js 20+ from https://nodejs.org, then open run_portfolio.bat again.'
+  Write-Host 'Install Node.js 20.9 or newer from https://nodejs.org, then open run_portfolio.bat again.'
   exit 1
 }
 
@@ -109,16 +122,9 @@ try {
 
     # Open the browser as soon as the server accepts connections. The browser
     # then waits for the page to compile, so launching it overlaps that work.
-    if (-not $opened) {
-      $client = New-Object Net.Sockets.TcpClient
-      try {
-        $client.Connect('127.0.0.1', 3000)
-        Start-Process $url
-        $opened = $true
-      } catch {
-      } finally {
-        $client.Close()
-      }
+    if (-not $opened -and (Test-ServerUp)) {
+      Start-Process $url
+      $opened = $true
     }
     Start-Sleep -Milliseconds 100
   }

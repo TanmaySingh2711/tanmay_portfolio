@@ -2,7 +2,6 @@ export const portfolioData = {
   personal: {
     name: "Tanmay Singh",
     title: "Aspiring AI Engineer",
-    location: "Bengaluru, Karnataka, India",
     siteUrl: "https://tanmayportfolio-five.vercel.app",
     phone: "+91 8860028629",
     email: "tanmaysingh8970@gmail.com",
@@ -147,8 +146,4 @@ export const portfolioData = {
       url: "/certificates/excel-power-bi-tableau-workshop-sfj.pdf",
     },
   ],
-};
-
-export const getCertificateButtonType = (url: string) => {
-  return url.toLowerCase().endsWith(".pdf") ? "View Certificate" : "Verify Certificate";
 };

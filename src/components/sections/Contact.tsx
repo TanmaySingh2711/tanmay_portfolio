@@ -63,7 +63,13 @@ export function Contact() {
                     {method.value}
                   </p>
                 </div>
-                <ExternalLink size={16} className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                {method.external && (
+                  <ExternalLink
+                    size={16}
+                    aria-hidden="true"
+                    className="text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
+                )}
               </div>
             </a>
           ))}

@@ -4,21 +4,25 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-MIN_NODE_MAJOR=20
-
 if ! command -v node >/dev/null 2>&1; then
-  echo "[ERROR] Node.js is not installed. Install Node.js ${MIN_NODE_MAJOR}+ from https://nodejs.org and re-run." >&2
+  echo "[ERROR] Node.js is not installed. Install Node.js 20.9 or newer from https://nodejs.org and re-run." >&2
   exit 1
 fi
+
+# The minimum version comes from "engines" in package.json.
+MIN_NODE="$(node -p 'require("./package.json").engines.node.match(/[\d.]+/)[0]')"
 
 if ! command -v npm >/dev/null 2>&1; then
   echo "[ERROR] npm was not found on PATH. Reinstall Node.js from https://nodejs.org and re-run." >&2
   exit 1
 fi
 
-NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]')"
-if [ "$NODE_MAJOR" -lt "$MIN_NODE_MAJOR" ]; then
-  echo "[ERROR] Node.js ${MIN_NODE_MAJOR}+ is required, found $(node -v)." >&2
+if ! node -e '
+  const min = process.argv[1].split(".").map(Number);
+  const cur = process.versions.node.split(".").map(Number);
+  for (let i = 0; i < 3; i++) if (cur[i] !== min[i]) process.exit(cur[i] > min[i] ? 0 : 1);
+' "$MIN_NODE"; then
+  echo "[ERROR] Node.js ${MIN_NODE} or newer is required, found $(node -v)." >&2
   exit 1
 fi
 
