@@ -23,28 +23,7 @@ rem The PowerShell code below is run by the command above. cmd never runs it.
 :PORTFOLIO_PS
 $url = 'http://localhost:3000'
 
-# Center this console window on its screen.
-try {
-  Add-Type -AssemblyName System.Windows.Forms
-  Add-Type -Namespace Portfolio -Name Win -MemberDefinition @'
-[StructLayout(LayoutKind.Sequential)] public struct RECT { public int Left, Top, Right, Bottom; }
-[DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
-[DllImport("kernel32.dll")] public static extern IntPtr GetConsoleWindow();
-[DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
-[DllImport("user32.dll")] public static extern bool SetWindowPos(IntPtr hWnd, IntPtr after, int x, int y, int cx, int cy, uint flags);
-'@
-  [void][Portfolio.Win]::SetProcessDPIAware()
-  $h = [Portfolio.Win]::GetConsoleWindow()
-  $r = New-Object Portfolio.Win+RECT
-  [void][Portfolio.Win]::GetWindowRect($h, [ref]$r)
-  $area = [System.Windows.Forms.Screen]::FromHandle($h).WorkingArea
-  $x = $area.Left + [int](($area.Width - ($r.Right - $r.Left)) / 2)
-  $y = $area.Top + [int](($area.Height - ($r.Bottom - $r.Top)) / 2)
-  # 0x5 = SWP_NOSIZE | SWP_NOZORDER
-  [void][Portfolio.Win]::SetWindowPos($h, [IntPtr]::Zero, $x, $y, 0, 0, 0x5)
-} catch {}
-
-if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
+if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
   Write-Host '[ERROR] Node.js is not installed, so the site cannot start.'
   Write-Host 'Install Node.js 20+ from https://nodejs.org, then open run_portfolio.bat again.'
   exit 1
@@ -61,19 +40,58 @@ if (-not (Test-Path 'node_modules\next')) {
 }
 
 Write-Host "Starting your portfolio at $url"
-Write-Host 'It opens in your browser as soon as the page is ready.'
+Write-Host 'It opens in your browser as soon as the server is up.'
 Write-Host 'Press Esc to stop the site and close this window.'
 Write-Host ''
 
-$server = Start-Process cmd.exe -ArgumentList '/c', 'npm run dev' -NoNewWindow -PassThru
+# Start the server first so it boots while the rest of this script runs.
+# Calling Next.js through node directly skips npm's own startup time.
+$server = Start-Process node -ArgumentList 'node_modules\next\dist\bin\next', 'dev' -NoNewWindow -PassThru
 
-# Request the page before opening the browser, so the first compile is already done
-# and the browser shows the finished page right away.
-Add-Type -AssemblyName System.Net.Http
-$http = New-Object System.Net.Http.HttpClient
-$http.Timeout = [TimeSpan]::FromMinutes(3)
-$warmup = $null
-$nextTry = [DateTime]::Now
+# Center this console window on its screen. The helper is compiled once and
+# cached in %TEMP%, so later launches only load it instead of compiling it again.
+try {
+  $dll = Join-Path $env:TEMP 'tanmay-portfolio\ConsoleWindow-v1.dll'
+  if (-not (Test-Path $dll)) {
+    New-Item -ItemType Directory -Force (Split-Path $dll) | Out-Null
+    Add-Type -OutputAssembly $dll -OutputType Library -TypeDefinition @'
+using System;
+using System.Runtime.InteropServices;
+
+namespace Portfolio {
+  public static class ConsoleWindow {
+    [StructLayout(LayoutKind.Sequential)] struct RECT { public int Left, Top, Right, Bottom; }
+    [StructLayout(LayoutKind.Sequential)] struct MONITORINFO { public int cbSize; public RECT rcMonitor, rcWork; public uint dwFlags; }
+
+    [DllImport("user32.dll")] static extern bool SetProcessDPIAware();
+    [DllImport("kernel32.dll")] static extern IntPtr GetConsoleWindow();
+    [DllImport("user32.dll")] static extern bool GetWindowRect(IntPtr hWnd, out RECT rect);
+    [DllImport("user32.dll")] static extern IntPtr MonitorFromWindow(IntPtr hWnd, uint flags);
+    [DllImport("user32.dll")] static extern bool GetMonitorInfo(IntPtr monitor, ref MONITORINFO info);
+    [DllImport("user32.dll")] static extern bool SetWindowPos(IntPtr hWnd, IntPtr after, int x, int y, int cx, int cy, uint flags);
+
+    public static void Center() {
+      SetProcessDPIAware();
+      IntPtr h = GetConsoleWindow();
+      RECT r;
+      if (h == IntPtr.Zero || !GetWindowRect(h, out r)) return;
+      MONITORINFO m = new MONITORINFO();
+      m.cbSize = Marshal.SizeOf(typeof(MONITORINFO));
+      // 2 = MONITOR_DEFAULTTONEAREST
+      if (!GetMonitorInfo(MonitorFromWindow(h, 2), ref m)) return;
+      int x = m.rcWork.Left + ((m.rcWork.Right - m.rcWork.Left) - (r.Right - r.Left)) / 2;
+      int y = m.rcWork.Top + ((m.rcWork.Bottom - m.rcWork.Top) - (r.Bottom - r.Top)) / 2;
+      // 0x5 = SWP_NOSIZE | SWP_NOZORDER
+      SetWindowPos(h, IntPtr.Zero, x, y, 0, 0, 0x5);
+    }
+  }
+}
+'@
+  }
+  Add-Type -Path $dll
+  [Portfolio.ConsoleWindow]::Center()
+} catch {}
+
 $opened = $false
 $stopped = $false
 
@@ -89,18 +107,17 @@ try {
     }
     if ($stopped) { break }
 
+    # Open the browser as soon as the server accepts connections. The browser
+    # then waits for the page to compile, so launching it overlaps that work.
     if (-not $opened) {
-      if ($null -eq $warmup) {
-        if ([DateTime]::Now -ge $nextTry) { $warmup = $http.GetAsync($url) }
-      } elseif ($warmup.IsCompleted) {
-        if ($warmup.Status -eq 'RanToCompletion') {
-          Start-Process $url
-          $opened = $true
-        } else {
-          # Server is not listening yet; try again shortly.
-          $warmup = $null
-          $nextTry = [DateTime]::Now.AddMilliseconds(300)
-        }
+      $client = New-Object Net.Sockets.TcpClient
+      try {
+        $client.Connect('127.0.0.1', 3000)
+        Start-Process $url
+        $opened = $true
+      } catch {
+      } finally {
+        $client.Close()
       }
     }
     Start-Sleep -Milliseconds 100

@@ -39,9 +39,9 @@ export function Contact() {
   ];
 
   return (
-    <Section id="contact" className="bg-muted/30">
+    <Section id="contact">
       <SectionHeading>Contact</SectionHeading>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {contactMethods.map((method) => (
             <a

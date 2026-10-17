@@ -8,7 +8,7 @@ export function Hackathons() {
   const { hackathons } = portfolioData;
 
   return (
-    <Section id="hackathons">
+    <Section id="hackathons" className="bg-muted/30">
       <SectionHeading>Hackathons</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {hackathons.map((hackathon) => (

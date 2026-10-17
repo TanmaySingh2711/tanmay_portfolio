@@ -13,12 +13,12 @@ export const portfolioData = {
     leetcode: "https://leetcode.com/u/vcYjoLhKrp/",
     resume: "/resume.pdf",
     summary:
-      "Final-year B.E. student in Artificial Intelligence and Data Science who builds AI software that solves practical problems. Skilled in Python, machine learning, deep learning, computer vision, and web development. Built a hand-gesture game controller that recognizes gestures with 99% accuracy, a self-learning agent that plays a game to find bugs on its own, and an AI shopping assistant that completes secure test payments. Seeking an entry-level AI Engineer role.",
+      "Final-year B.E. student in Artificial Intelligence and Data Science who builds practical AI software, from computer vision and reinforcement learning to RAG and LLM agents. Seeking an entry-level AI Engineer role.",
   },
   about: [
     "I am an aspiring AI Engineer and currently a final-year B.E. student specializing in Artificial Intelligence & Data Science. I build AI software that solves practical problems, working mainly in Python along with TypeScript, JavaScript, and SQL.",
-    "My core interests lie in machine learning, deep learning, computer vision, and web development. So far I have built a hand-gesture game controller that recognizes gestures with 99% accuracy, a self-learning agent that plays a game to find bugs on its own, and an AI shopping assistant that completes secure test payments.",
-    "As a continuous learner, I thrive on adapting to new technologies and methodologies to build scalable, intelligent systems that make a tangible impact.",
+    "My core interests are machine learning, deep learning, computer vision, and generative AI. So far I have built a hand-gesture game controller that recognizes gestures with 99% accuracy, a self-learning agent that plays a game to find bugs on its own, an AI shopping assistant that completes secure test payments, and an offline research assistant that answers questions about PDFs with page-level citations.",
+    "I like to measure my work instead of guessing. I track numbers such as test accuracy, retrieval hit rate, and response time, and use them to decide what to improve next.",
   ],
   education: [
     {
@@ -44,10 +44,11 @@ export const portfolioData = {
         "OpenCV",
         "NumPy",
         "Matplotlib",
-        "Google Gemini API",
-        "RAG",
-        "Ollama",
       ],
+    },
+    {
+      category: "Generative AI & LLMs",
+      items: ["RAG", "FAISS", "Ollama", "Google Gemini API"],
     },
     {
       category: "Frameworks & Libraries",
@@ -55,7 +56,7 @@ export const portfolioData = {
     },
     {
       category: "APIs & Databases",
-      items: ["REST APIs", "Razorpay API", "PostgreSQL", "FAISS"],
+      items: ["REST APIs", "Razorpay API", "PostgreSQL"],
     },
     {
       category: "Developer Tools",

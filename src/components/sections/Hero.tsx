@@ -15,19 +15,27 @@ export function Hero() {
           <h2 className="text-2xl md:text-3xl font-medium text-accent-blue mb-6">
             {personal.title}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed text-pretty">
             {personal.summary}
           </p>
           
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-            <a
-              href={personal.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-12 items-center justify-center rounded-md bg-accent-red px-8 text-sm font-medium text-white shadow transition-colors hover:bg-accent-red/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-red"
-            >
-              View Resume
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href={personal.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center rounded-md bg-accent-red px-8 text-sm font-medium text-white shadow transition-colors hover:bg-accent-red/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-red"
+              >
+                View Resume
+              </a>
+              <a
+                href="#projects"
+                className="inline-flex h-12 items-center justify-center rounded-md border border-border px-8 text-sm font-medium text-foreground transition-colors hover:border-accent-blue hover:text-accent-blue focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-blue"
+              >
+                View Projects
+              </a>
+            </div>
             
             <div className="flex items-center gap-4">
               <a

@@ -21,7 +21,23 @@
 
 ### Home page (dark mode)
 
-![Portfolio home page](docs/screenshot-home.png)
+![Portfolio home page in dark mode](docs/screenshot-home.png)
+
+### Home page (light mode)
+
+![Portfolio home page in light mode](docs/screenshot-light.png)
+
+### Projects
+
+![Projects section with four project cards](docs/screenshot-projects.png)
+
+### Skills
+
+![Skills section grouped into six categories](docs/screenshot-skills.png)
+
+### Mobile
+
+<img src="docs/screenshot-mobile.png" alt="Portfolio home page on a phone" width="300">
 
 The best preview is the live site: **[tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)**.
 
@@ -60,10 +76,10 @@ The page shows these sections, in this order:
 
 | Section | What it shows |
 |---|---|
-| Hero | Name, title, short summary, a **View Resume** button, and GitHub / LinkedIn / email icons |
+| Hero | Name, title, short summary, **View Resume** and **View Projects** buttons, and GitHub / LinkedIn / email icons |
 | About | A few short paragraphs about me |
 | Education | Degree, college, location, years, and CGPA |
-| Skills | Skills grouped by category (languages, AI & ML, frameworks, APIs & databases, tools) |
+| Skills | Skills in six groups: languages, AI & ML, generative AI & LLMs, frameworks, APIs & databases, and developer tools |
 | Projects | Project cards with the tech stack, a description, and a **View on GitHub** button |
 | Coding Profiles | Links to GeeksforGeeks, HackerRank, and LeetCode |
 | Hackathons | Hackathon participation, each with a link to its certificate |
@@ -152,6 +168,8 @@ It runs on Windows, macOS, and Linux.
 
 ## Installation
 
+These steps are for the author and for anyone given written permission (see [License](#license)).
+
 ```bash
 git clone https://github.com/TanmaySingh2711/tanmay_portfolio.git
 cd tanmay_portfolio
@@ -174,7 +192,7 @@ setup.bat
 ./setup.sh
 ```
 
-On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser once the page is ready. Press Esc in that window to stop the server and close it.
+On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser as soon as the server is up (usually within 3 seconds). Press Esc in that window to stop the server and close it.
 
 ## Run Locally
 
