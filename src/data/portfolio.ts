@@ -67,29 +67,57 @@ export const portfolioData = {
       name: "CNN-Based Gesture Controlled Pac-Man",
       stack: ["Python", "PyTorch", "OpenCV", "CUDA", "Pygame"],
       githubUrl: "https://github.com/TanmaySingh2711/gesture-controlled-game",
-      description:
-        "Built and trained a MobileNetV2-based Convolutional Neural Network (CNN) for real-time hand gesture classification using a 2,000-image HaGRID dataset, achieving 99.0% test accuracy across left, right, up, and down commands. Developed a real-time computer vision pipeline using OpenCV, CUDA-enabled PyTorch inference, confidence thresholding, and temporal smoothing to convert webcam gestures into responsive game controls. Engineered a Pac-Man-style Pygame application with maze navigation, ghost AI, pellets, power-ups, scoring, lives, and level progression, maintaining approximately 60 FPS gameplay with 30 FPS gesture recognition.",
+      image: "/projects/gesture-controlled-pac-man.png",
+      imageAlt: "Start screen of the gesture-controlled Pac-Man game listing the four hand gestures and keyboard controls",
+      description: [
+        "Trained a MobileNetV2 CNN on a 2,000-image HaGRID dataset to classify hand gestures in real time.",
+        "Reached 99.0% test accuracy on the left, right, up, and down commands.",
+        "Built an OpenCV webcam pipeline with CUDA-enabled PyTorch inference to turn gestures into game controls.",
+        "Added confidence thresholding and temporal smoothing to keep the controls responsive.",
+        "Made a Pac-Man-style Pygame game with ghost AI, power-ups, and levels that runs at about 60 FPS.",
+      ],
     },
     {
       name: "Glitch Hunter – AI Game Testing System",
       stack: ["Python", "Stable-Baselines3", "Gymnasium", "Flask"],
       githubUrl: "https://github.com/TanmaySingh2711/glitch_hunter_project",
-      description:
-        "Trained a PPO reinforcement learning agent in two stages for 16 million steps across 8 parallel environments to autonomously explore and interact with a Mario-style Pygame game for continuous gameplay testing. Developed a runtime glitch detection system that monitors game-state invariants to identify abnormal movement, clipping, score, and coin-related bugs, saving screenshot, GIF, and PDF report evidence for each bug. Built a live Flask and Socket.IO dashboard to stream AI gameplay, actions, rewards, and detected glitches for real-time testing and analysis.",
+      image: "/projects/glitch-hunter.png",
+      imageAlt: "Glitch Hunter dashboard home page with the Open Live Testing button and the four agent steps",
+      description: [
+        "Trained a PPO reinforcement learning agent for 16 million steps across 8 parallel environments.",
+        "The agent plays a Mario-style Pygame game on its own for continuous gameplay testing.",
+        "Detects movement, clipping, score, and coin bugs by checking game-state invariants while it plays.",
+        "Saves a screenshot, GIF, and PDF report as evidence for every bug it finds.",
+        "Built a live Flask and Socket.IO dashboard that streams gameplay, rewards, and detected glitches.",
+      ],
     },
     {
       name: "Razorpay Agentic Commerce",
       stack: ["TypeScript", "Next.js", "PostgreSQL", "Gemini API", "Razorpay API"],
       githubUrl: "https://github.com/TanmaySingh2711/razorpay-agentic-commerce",
-      description:
-        "Built and deployed on Vercel an AI buyer agent using Google Gemini to understand shopping requests and propose suitable products within user-defined requirements. Developed a secure policy and human-approval system where the server validates prices, spending limits, inventory, and authorization before payment. Integrated Razorpay Test Mode with payment state tracking, retries, inventory reservation, and audit logging for reliable, complete purchases.",
+      image: "/projects/razorpay-agentic-commerce.png",
+      imageAlt: "Razorpay Agentic Commerce home page with the headline An AI that shops for you, never trusted with the money",
+      description: [
+        "Built an AI buyer agent with Google Gemini that understands shopping requests in plain words.",
+        "The agent proposes products that match the requirements the user sets.",
+        "Server code, not the AI, validates prices, spending limits, inventory, and authorization before payment.",
+        "Added a secure policy and human-approval step before every purchase.",
+        "Integrated Razorpay Test Mode with payment tracking, retries, and audit logs, deployed on Vercel.",
+      ],
     },
     {
       name: "Academic Research Assistant",
       stack: ["Python", "RAG", "FAISS", "Ollama", "Flask"],
       githubUrl: "https://github.com/TanmaySingh2711/academic-research-assistant",
-      description:
-        "Built a fully local Retrieval-Augmented Generation (RAG) app that answers questions about research paper PDFs with page-level citations, using Llama 3.2 (3B) through Ollama with no API keys or cloud services. Designed a hybrid retrieval pipeline combining FAISS vector search and BM25 keyword search with cross-encoder re-ranking, raising the right passage ranked first from 44.4% to 83.3% and correct answers from 65% to over 90% on a real research paper. Developed a Flask web app with streamed answers, follow-up questions, saved chat history, and offline OCR for scanned PDFs, returning full answers in about 1 to 1.5 seconds on a laptop CPU.",
+      image: "/projects/academic-research-assistant.png",
+      imageAlt: "Research Assistant home page with the headline Ask your research papers, see the exact page, and the models it uses",
+      description: [
+        "Built a fully local RAG app that answers questions about research PDFs with page-level citations.",
+        "Runs Llama 3.2 (3B) through Ollama, with no API keys or cloud services.",
+        "Combines FAISS vector search and BM25 keyword search with cross-encoder re-ranking.",
+        "On a real paper, raised correct answers from 65% to over 90%, and the top-ranked right passage from 44.4% to 83.3%.",
+        "Flask web app with streamed answers, chat history, and offline OCR, answering in about 1 to 1.5 seconds.",
+      ],
     },
   ],
   hackathons: [

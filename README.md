@@ -80,7 +80,7 @@ The page shows these sections, in this order:
 | About | A few short paragraphs about me |
 | Education | Degree, college, location, years, and CGPA |
 | Skills | Skills in six groups: languages, AI & ML, generative AI & LLMs, frameworks, APIs & databases, and developer tools |
-| Projects | Project cards with the tech stack, a description, and a **View on GitHub** button |
+| Projects | Project cards with a screenshot, the tech stack, five short highlights, and a **View on GitHub** button |
 | Coding Profiles | Links to GeeksforGeeks, HackerRank, and LeetCode |
 | Hackathons | Hackathon participation, each with a link to its certificate |
 | Certifications | Course certificates, each with a **View Certificate** button |
@@ -226,6 +226,7 @@ src/
 public/
   resume.pdf         Resume
   certificates/      Certificate PDFs
+  projects/          Project screenshots shown on each project card
 .github/workflows/   CI workflow
 setup.bat, setup.sh  One-click setup scripts
 run_portfolio.bat    Windows shortcut to start the dev server and open the site
