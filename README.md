@@ -12,7 +12,7 @@
 | This repository | [TanmaySingh2711/tanmay_portfolio](https://github.com/TanmaySingh2711/tanmay_portfolio) |
 | Resume | [public/resume.pdf](public/resume.pdf) |
 | GitHub profile | [TanmaySingh2711](https://github.com/TanmaySingh2711) |
-| LinkedIn | [tanmay-singh](https://linkedin.com/in/tanmay-singh-216380334/) |
+| LinkedIn | [tanmaysingh2711](https://www.linkedin.com/in/tanmaysingh2711/) |
 | GeeksforGeeks | [tanmaysiaq6p](https://www.geeksforgeeks.org/profile/tanmaysiaq6p) |
 | HackerRank | [tanmaysingh4628](https://www.hackerrank.com/profile/tanmaysingh4628) |
 | LeetCode | [vcYjoLhKrp](https://leetcode.com/u/vcYjoLhKrp/) |
@@ -31,9 +31,9 @@
 
 ![Projects section with four project cards](docs/screenshot-projects.png)
 
-### Skills
+### Technical Skills
 
-![Skills section grouped into six categories](docs/screenshot-skills.png)
+![Technical Skills section grouped into six categories](docs/screenshot-skills.png)
 
 ### Mobile
 
@@ -66,7 +66,7 @@ The best preview is the live site: **[tanmayportfolio-five.vercel.app](https://t
 
 This is a single-page portfolio website. Visitors can read a short introduction, see my education and skills, browse my projects with links to their code, open my resume and certificates, and find my coding profiles and contact details.
 
-It supports light and dark mode, and the navigation bar scrolls smoothly to each section.
+It supports light and dark mode. The navigation bar scrolls smoothly to each section, and an underline slides to the link of the section you are reading.
 
 All the content (text, skills, projects, links) is stored in one file, [src/data/portfolio.ts](src/data/portfolio.ts). To change what the website shows, edit that file instead of the components.
 
@@ -79,7 +79,7 @@ The page shows these sections, in this order:
 | Hero | Name, title, short summary, **View Resume** and **View Projects** buttons, and GitHub / LinkedIn / email icons |
 | About | A few short paragraphs about me |
 | Education | Degree, college, location, years, and CGPA |
-| Skills | Skills in six groups: languages, AI & ML, generative AI & LLMs, frameworks, APIs & databases, and developer tools |
+| Technical Skills | The same six groups as the resume: languages, AI & ML, generative AI & agentic AI, frameworks & libraries, APIs & databases, and developer tools |
 | Projects | Project cards with a screenshot, the tech stack, five short highlights, and a **View on GitHub** button |
 | Coding Profiles | Links to GeeksforGeeks, HackerRank, and LeetCode |
 | Hackathons | Hackathon participation, each with a link to its certificate |
@@ -271,7 +271,7 @@ Built and maintained by **Tanmay Singh**.
 
 - Portfolio: [tanmayportfolio-five.vercel.app](https://tanmayportfolio-five.vercel.app)
 - Email: [tanmaysingh8970@gmail.com](mailto:tanmaysingh8970@gmail.com)
-- LinkedIn: [tanmay-singh-216380334](https://linkedin.com/in/tanmay-singh-216380334/)
+- LinkedIn: [tanmaysingh2711](https://www.linkedin.com/in/tanmaysingh2711/)
 - GitHub: [TanmaySingh2711](https://github.com/TanmaySingh2711)
 - GeeksforGeeks: [tanmaysiaq6p](https://www.geeksforgeeks.org/profile/tanmaysiaq6p)
 - HackerRank: [tanmaysingh4628](https://www.hackerrank.com/profile/tanmaysingh4628)

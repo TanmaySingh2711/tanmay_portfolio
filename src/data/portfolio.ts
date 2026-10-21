@@ -5,19 +5,19 @@ export const portfolioData = {
     siteUrl: "https://tanmayportfolio-five.vercel.app",
     phone: "+91 8860028629",
     email: "tanmaysingh8970@gmail.com",
-    linkedin: "https://linkedin.com/in/tanmay-singh-216380334/",
+    linkedin: "https://www.linkedin.com/in/tanmaysingh2711/",
     github: "https://github.com/TanmaySingh2711",
     geeksforgeeks: "https://www.geeksforgeeks.org/profile/tanmaysiaq6p",
     hackerrank: "https://www.hackerrank.com/profile/tanmaysingh4628",
     leetcode: "https://leetcode.com/u/vcYjoLhKrp/",
     resume: "/resume.pdf",
     summary:
-      "Final-year B.E. student in Artificial Intelligence and Data Science who builds practical AI software, from computer vision and reinforcement learning to RAG and LLM agents. Seeking an entry-level AI Engineer role.",
+      "Final-year B.E. student in Artificial Intelligence and Data Science who builds AI software that solves practical problems. Skilled in Python, machine learning, deep learning, computer vision, and web development. Seeking an entry-level AI Engineer role.",
   },
   about: [
-    "I am an aspiring AI Engineer and currently a final-year B.E. student specializing in Artificial Intelligence & Data Science. I build AI software that solves practical problems, working mainly in Python along with TypeScript, JavaScript, and SQL.",
-    "My core interests are machine learning, deep learning, computer vision, and generative AI. So far I have built a hand-gesture game controller that recognizes gestures with 99% accuracy, a self-learning agent that plays a game to find bugs on its own, an AI shopping assistant that completes secure test payments, and an offline research assistant that answers questions about PDFs with page-level citations.",
-    "I like to measure my work instead of guessing. I track numbers such as test accuracy, retrieval hit rate, and response time, and use them to decide what to improve next.",
+    "I am an aspiring AI Engineer and a final-year B.E. student in Artificial Intelligence & Data Science at K. S. School of Engineering and Management, Bengaluru (2023 - 2027, CGPA 7.3/10). I build AI software that solves practical problems, working mainly in Python along with TypeScript, JavaScript, and SQL.",
+    "I am skilled in machine learning, deep learning, computer vision, and web development. I also build with generative and agentic AI, using RAG, FAISS, Sentence-Transformers, Ollama, and AI agents.",
+    "My projects include a local RAG assistant that answers questions on research papers with page-level citations, reaching 97.1% answer accuracy on a 68-question test set; an AI buyer agent that completes Razorpay test payments with human approval above Rs. 3,000; a reinforcement learning agent that finds bugs in a Mario-style game on its own; and a hand-gesture game controller with 99.0% test accuracy.",
   ],
   education: [
     {
@@ -29,37 +29,30 @@ export const portfolioData = {
     },
   ],
   skills: [
+    // Same groups and order as "Technical Skills" in public/resume.pdf.
     {
       category: "Languages",
       items: ["Python", "TypeScript", "JavaScript", "SQL", "HTML", "CSS"],
     },
     {
       category: "AI & ML",
-      items: [
-        "PyTorch",
-        "scikit-learn",
-        "Stable-Baselines3",
-        "Gymnasium",
-        "OpenCV",
-        "NumPy",
-        "Matplotlib",
-      ],
+      items: ["PyTorch", "Stable-Baselines3", "Gymnasium", "OpenCV"],
     },
     {
-      category: "Generative AI & LLMs",
-      items: ["RAG", "FAISS", "Ollama", "Google Gemini API"],
+      category: "Generative AI & Agentic AI",
+      items: ["RAG", "FAISS", "Sentence-Transformers", "Ollama", "AI Agents"],
     },
     {
       category: "Frameworks & Libraries",
-      items: ["Next.js", "React", "Flask", "Pygame"],
+      items: ["Next.js", "React", "Flask", "Pygame", "NumPy", "Matplotlib"],
     },
     {
       category: "APIs & Databases",
-      items: ["REST APIs", "Razorpay API", "PostgreSQL"],
+      items: ["Google Gemini API", "Razorpay API", "REST APIs", "PostgreSQL"],
     },
     {
       category: "Developer Tools",
-      items: ["Git", "GitHub", "GitHub Actions", "Docker", "Vercel", "CUDA"],
+      items: ["Git", "GitHub", "GitHub Actions", "Vercel", "CUDA"],
     },
   ],
   projects: [

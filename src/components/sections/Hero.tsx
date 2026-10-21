@@ -6,7 +6,7 @@ export function Hero() {
   const { personal } = portfolioData;
 
   return (
-    <section className="min-h-screen flex items-center pt-16">
+    <section className="min-h-screen flex items-center pt-16 lg:pt-20">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight uppercase mb-4 text-foreground">

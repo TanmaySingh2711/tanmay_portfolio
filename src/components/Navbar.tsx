@@ -21,6 +21,40 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState("");
+  const linkRefs = React.useRef(new Map<string, HTMLAnchorElement>());
+  const indicatorRef = React.useRef<HTMLSpanElement>(null);
+
+  // Slides the underline below the active desktop link. It is moved by
+  // writing styles directly, so scrolling does not re-render the navbar.
+  React.useEffect(() => {
+    const bar = indicatorRef.current;
+    if (!bar) return;
+
+    const place = () => {
+      const link = linkRefs.current.get(activeSection);
+      if (!link) {
+        bar.style.opacity = "0";
+        return;
+      }
+      // When the bar first appears, put it in place before fading it in, so
+      // it does not slide in from the left edge of the navbar.
+      const wasHidden = bar.style.opacity !== "1";
+      if (wasHidden) bar.style.transition = "none";
+      bar.style.width = `${link.offsetWidth}px`;
+      bar.style.transform = `translateX(${link.offsetLeft}px)`;
+      if (wasHidden) {
+        void bar.offsetWidth; // apply the position before turning transitions back on
+        bar.style.transition = "";
+      }
+      bar.style.opacity = "1";
+    };
+
+    place();
+    // Link widths change with the window size and once the web font loads.
+    window.addEventListener("resize", place);
+    document.fonts?.ready.then(place);
+    return () => window.removeEventListener("resize", place);
+  }, [activeSection]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -67,36 +101,49 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-16 lg:h-20 items-center justify-between">
           <a
             href="#"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-xl font-bold tracking-tight text-foreground hover:text-accent-red transition-colors"
+            className="text-xl lg:text-2xl font-bold tracking-tight text-foreground hover:text-accent-red transition-colors"
           >
             TS
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-accent-blue",
-                  activeSection === link.href.substring(1)
-                    ? "text-accent-blue"
-                    : "text-muted-foreground"
-                )}
-              >
-                {link.name}
-              </a>
-            ))}
+          {/* Desktop Nav. The links fill the bar's height so the underline
+              sits on its bottom edge. Text grows only from xl, because nine
+              links at 16px do not fit at 1024px. */}
+          <nav className="relative hidden lg:flex self-stretch items-center gap-6 xl:gap-8">
+            {navLinks.map((link) => {
+              const id = link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  ref={(el) => {
+                    if (el) linkRefs.current.set(id, el);
+                    else linkRefs.current.delete(id);
+                  }}
+                  href={link.href}
+                  onClick={(e) => handleClick(e, link.href)}
+                  aria-current={activeSection === id ? "location" : undefined}
+                  className={cn(
+                    "flex h-full items-center text-sm xl:text-base font-medium transition-colors hover:text-accent-blue",
+                    activeSection === id ? "text-accent-blue" : "text-muted-foreground"
+                  )}
+                >
+                  {link.name}
+                </a>
+              );
+            })}
             <ThemeToggle />
+            <span
+              ref={indicatorRef}
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-0 left-0 h-[3px] rounded-full bg-accent-blue opacity-0 transition-[transform,width,opacity] duration-300 ease-out motion-reduce:transition-none"
+            />
           </nav>
 
           {/* Mobile Nav Toggle */}

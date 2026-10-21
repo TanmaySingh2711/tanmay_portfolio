@@ -7,7 +7,7 @@ export function Skills() {
 
   return (
     <Section id="skills">
-      <SectionHeading>Skills</SectionHeading>
+      <SectionHeading>Technical Skills</SectionHeading>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {skills.map((skillGroup) => (
           <div
