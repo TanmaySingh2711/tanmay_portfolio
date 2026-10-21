@@ -15,7 +15,7 @@ export const portfolioData = {
       "Final-year B.E. student in Artificial Intelligence and Data Science who builds AI software that solves practical problems. Skilled in Python, machine learning, deep learning, computer vision, and web development. Seeking an entry-level AI Engineer role.",
   },
   about: [
-    "I am an aspiring AI Engineer and a final-year B.E. student in Artificial Intelligence & Data Science at K. S. School of Engineering and Management, Bengaluru (2023 - 2027, CGPA 7.3/10). I build AI software that solves practical problems, working mainly in Python along with TypeScript, JavaScript, and SQL.",
+    "I am an aspiring AI Engineer who builds AI software that solves practical problems, working mainly in Python along with TypeScript, JavaScript, and SQL.",
     "I am skilled in machine learning, deep learning, computer vision, and web development. I also build with generative and agentic AI, using RAG, FAISS, Sentence-Transformers, Ollama, and AI agents.",
     "My projects include a local RAG assistant that answers questions on research papers with page-level citations, reaching 97.1% answer accuracy on a 68-question test set; an AI buyer agent that completes Razorpay test payments with human approval above Rs. 3,000; a reinforcement learning agent that finds bugs in a Mario-style game on its own; and a hand-gesture game controller with 99.0% test accuracy.",
   ],
