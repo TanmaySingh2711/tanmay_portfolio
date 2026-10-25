@@ -192,7 +192,12 @@ setup.bat
 ./setup.sh
 ```
 
-On Windows you can also double-click `run_portfolio.bat`. It runs the setup first if dependencies are missing, starts the dev server in a centered window, and opens the site in your browser as soon as the server is up (usually within 3 seconds). Press Esc in that window to stop the server and close it. If the site is already running, it just opens the browser.
+To start the site in one step, use the launcher for your system:
+
+- **Windows:** double-click `run_portfolio.bat`. The window opens in the center of the screen.
+- **macOS / Linux:** run `./run_portfolio.sh` in a terminal.
+
+Both run the setup first if dependencies are missing, start the dev server, and open the site in your browser as soon as the server is up (usually within 4 seconds). Press **Esc** to stop the server; Ctrl+C is ignored, so the site cannot be stopped by accident. If the site is already running, they just open the browser.
 
 ## Run Locally
 
@@ -229,7 +234,8 @@ public/
   projects/          Project screenshots shown on each project card
 .github/workflows/   CI workflow
 setup.bat, setup.sh  One-click setup scripts
-run_portfolio.bat    Windows shortcut to start the dev server and open the site
+run_portfolio.bat    Windows launcher: starts the dev server and opens the site
+run_portfolio.sh     macOS / Linux launcher: same as run_portfolio.bat
 ```
 
 ## CI / GitHub Actions

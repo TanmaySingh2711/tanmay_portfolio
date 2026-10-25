@@ -1,6 +1,6 @@
 @echo off
 rem Starts the portfolio dev server in a centered window and opens it in the browser.
-rem Press Esc (or Ctrl+C) to stop the server and close the window.
+rem Press Esc to stop the server and close the window. Ctrl+C is ignored.
 setlocal
 
 cd /d "%~dp0"
@@ -108,13 +108,14 @@ namespace Portfolio {
 $opened = $false
 $stopped = $false
 
-# Ctrl+C arrives as a key press, so both Esc and Ctrl+C shut down cleanly.
+# Ctrl+C arrives as a plain key press instead of a signal, so it cannot stop
+# the site by accident; only Esc does.
 [Console]::TreatControlCAsInput = $true
 try {
   while (-not $server.HasExited) {
     while ([Console]::KeyAvailable) {
       $key = [Console]::ReadKey($true)
-      if ($key.Key -eq 'Escape' -or ($key.Key -eq 'C' -and ($key.Modifiers -band [ConsoleModifiers]::Control))) {
+      if ($key.Key -eq 'Escape') {
         $stopped = $true
       }
     }

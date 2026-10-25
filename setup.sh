@@ -36,5 +36,6 @@ else
 fi
 
 echo
-echo "Setup complete. Start the dev server with:  npm run dev"
+echo "Setup complete. Run ./run_portfolio.sh to start the site,"
+echo "or run:  npm run dev"
 echo "Then open http://localhost:3000"
